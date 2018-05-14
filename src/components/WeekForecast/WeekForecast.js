@@ -1,20 +1,19 @@
 import {appSettings, units} from '../../utils/settings.js';
 import React, {Component} from 'react';
 
-const latitude = 40;
-const longitude = 60;
-
 class WeekForecast extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
             isLoading: false
-        }
+        };
     }
 
     componentDidMount() {
         this.setState({isLoading: true});
+
+        const {latitude, longitude} = this.props;
 
         let url = `${appSettings.proxy}${appSettings.apiUrl}${appSettings.apiKey}/${latitude},${longitude}?units=${units.get('units')}`;
         fetch(url, appSettings.init)
@@ -25,7 +24,7 @@ class WeekForecast extends Component {
     }
 
     render() {
-        const {data, isLoading} = this.state;
+        const {data} = this.state;
 
         return (
             <div>

@@ -31,7 +31,8 @@ class LocationSearch extends Component {
     }
 
     render() {
-        return <form className="option {isValid ? 'address' : 'address-invalid'}" onSubmit={this.handleSubmit}>
+        const isValid = this.state.isValid;
+        return <form className={`option ${isValid ? 'address' : 'address-invalid'}`} onSubmit={this.handleSubmit}>
             <label htmlFor="address" id="">
                 <input
                     id="address"
