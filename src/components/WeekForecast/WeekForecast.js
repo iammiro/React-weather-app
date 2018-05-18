@@ -2,7 +2,7 @@ import {appSettings, units} from '../../utils/settings.js';
 import React, {Component} from 'react';
 
 const LoadingIcon = () => {
-    return <img className='loading-icon' src='img/loading.svg' alt='preloader'/>;
+    return <img className='loading-icon' src='img/loading.svg' alt='loading animation icon'/>;
 };
 
 class WeekForecast extends Component {
@@ -66,11 +66,11 @@ class WeekForecast extends Component {
                         </div>
                         <div className="forecast-summary">{element.summary}.</div>
                         <div className="individual-day-forecast-footer-wrapper">
-                            <div className="forecast-item">Wind:{Math.round(element.windSpeed)} </div>
-                            <div className="forecast-item">Humidity:{Math.round(element.humidity)} %</div>
-                            <div className="forecast-item">Dew Pt:{Math.round(element.dewPoint)}˚</div>
-                            <div className="forecast-item">UV Index:{Math.round(element.uvIndex)}</div>
-                            <div className="forecast-item">Pressure:{Math.round(element.pressure)} hPa</div>
+                            <div className="forecast-item">Wind:<span className='numeric'>{Math.round(element.windSpeed)} </span></div>
+                            <div className="forecast-item">Humidity:<span className='numeric'>{Math.round(element.humidity)} %</span></div>
+                            <div className="forecast-item">Dew Pt:<span className='numeric'>{Math.round(element.dewPoint)}˚</span></div>
+                            <div className="forecast-item">UV Index:<span className='numeric'>{Math.round(element.uvIndex)}</span></div>
+                            <div className="forecast-item">Pressure:<span className='numeric'>{Math.round(element.pressure)} hPa</span></div>
                         </div>
                     </div>
                 )}

@@ -1,5 +1,4 @@
 const appSettings = {
-    container: document.getElementById('container'),
     apiUrl: 'https://api.darksky.net/forecast/',
     proxy: 'https://cors-anywhere.herokuapp.com/',
     apiKey: 'c0edd7e111d453106e09ff75c17397b8',
