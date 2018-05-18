@@ -1,12 +1,16 @@
 import {appSettings, units} from '../../utils/settings.js';
 import React, {Component} from 'react';
 
+const LoadingIcon = () => {
+    return <img className='loading-icon' src='img/loading.svg' alt='preloader'/>;
+};
+
 class WeekForecast extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            isLoading: false,
+            isLoading: true,
             position: {
                 latitude: this.props.latitude,
                 longitude: this.props.longitude
@@ -18,7 +22,10 @@ class WeekForecast extends Component {
         let url = `${appSettings.proxy}${appSettings.apiUrl}${appSettings.apiKey}/${this.state.position.latitude},${this.state.position.longitude}?units=${units.get('units')}`;
         fetch(url, appSettings.init)
             .then(response => response.json())
-            .then(myBlob => this.setState({data: myBlob.daily.data}))
+            .then(myBlob => this.setState({
+                data: myBlob.daily.data,
+                isLoading: false
+            }))
             .catch(error => console.log(error));
     }
 
@@ -32,23 +39,26 @@ class WeekForecast extends Component {
                 }
             };
         }
-
     }
 
     componentDidMount() {
-        this.setState({isLoading: true});
         this.getForecast();
     }
 
     render() {
         this.getForecast();
         const {data} = this.state;
+        const {isLoading} = this.state;
 
         return (
-            <main id='container'>
+            <main
+                id='container'
+                className={`option ${isLoading ? 'loading' : 'loaded'}`}>
+                <LoadingIcon/>
                 {data.map(element =>
                     <div className="individual-day-forecast-wrapper" key={element.apparentTemperatureHighTime}>
-                        <img className="forecast-icon" src={`https://iammiro.github.io/React-weather-app/img/${element.icon}.svg`}/>
+                        <img className="forecast-icon"
+                             src={`https://iammiro.github.io/React-weather-app/img/${element.icon}.svg`}/>
                         <div className="forecast-day-temperature">&#9790;
                             {Math.round(element.temperatureMin)}˚ &#8594; &#9788;
                             {Math.round(element.temperatureMax)}˚

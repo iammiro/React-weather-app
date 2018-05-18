@@ -74,6 +74,27 @@ header {
     width: 50%;
 }
 
+#container {
+    min-height: calc(100vh - 150px);
+}
+
+.loading-icon {
+    position: absolute;
+    top: calc(50% - 5vh);
+    left: calc(50% - 5vh);
+    width: 10vh;
+    height: 10vh;
+    background: #333a48;
+}
+
+.loading .loading-icon {
+    display: flex;
+}
+
+.loaded .loading-icon {
+    display: none;
+}
+
 #units-container {
     display: flex;
     flex-direction: row;
@@ -307,6 +328,10 @@ footer a {
 }
 
 @media (max-width: 900px) {
+    #container {
+        min-height: calc(100vh - 215px);
+    }
+
     header {
         display: flex;
         flex-direction: column;
