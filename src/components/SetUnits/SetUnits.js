@@ -24,7 +24,7 @@ class SetUnits extends Component {
     }
 
     render() {
-        return <div>
+        return <div className='units-block-wrapper'>
                     <button id="us-unit" className="unit-button">˚F, mph</button>
                     <button id="si-unit" className="unit-button">˚C, m/s</button>
                 </div>

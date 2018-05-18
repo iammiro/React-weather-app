@@ -1,361 +1,409 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #333A48;
+    line-height: 1
+}
+
+ol, ul {
+    list-style: none
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+#root {
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333A48;
 }
 
 header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-  background-color: #e7ebf4;
-  width: 100%;
-  height: 50px;
-  position: sticky;
-  top: 0;
-}
-
-.options {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#input-search-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-
-#units-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-}
-
-#favorite-cities-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-}
-
-.address {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.address label {
-  width: 100%;
-}
-
-.address-input {
-  border: 1px solid #424b5a;
-  width: 100%;
-  text-align: center;
-  height: 46px;
-  background-color: lightslategray;
-  color: #ffffff;
-  font-size: 45px;
-  letter-spacing: 3px;
-}
-
-.address-input::placeholder {
-  color: #ffffff;
-  text-align: center;
-  font-size: 45px;
-  letter-spacing: 3px;
-  font-weight: 300;
-}
-
-.current {
-  background-color: #424b5a;
-  color: #e7ebf4;
-  height: 50px;
-}
-
-.btn-small {
-  border: none;
-  border-right: 1px solid lightslategray;
-  width: 25%;
-  height: 50px;
-  background-color: #424b5a;
-  color: #e7ebf4;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.btn-small img {
-  width: 30px;
-  height: 30px;
-}
-
-.btn-small:hover {
-  transition: .3s;
-  background-color: #354b5a;
-  color: #ffffff;
-}
-
-.unit-button {
-  border: none;
-  border-left: 1px solid lightslategray;
-  background-color: #424b5a;
-  color: #e7ebf4;
-  width: 50%;
-  height: 50px;
-  cursor: pointer;
-  transition: .3s;
-}
-
-#favorite-cities {
-  border: none;
-  border-left: 1px solid lightslategray;
-  background-color: #424b5a;
-  color: #e7ebf4;
-  width: 75%;
-  height: 50px;
-  cursor: pointer;
-  padding: 0 10px;
-  transition: .3s;
-}
-
-#submit {
-  background-image: url("img/search.svg");
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#addToFav {
-  background-image: url("img/add.svg");
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#currentPos {
-  background-image: url("img/target.svg");
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.unit-button:hover {
-  transition: .3s;
-  background-color: #354b5a;
-  color: #ffffff;
-}
-
-#recently-viewed-cities-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-}
-
-#recently-viewed-cities-block li {
-  margin: 10px 0;
-}
-
-.recently {
-  cursor: pointer;
-}
-
-.individual-day-forecast-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.individual-day-forecast-footer-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.forecast-item {
-  width: 70px;
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-}
-
-.forecast-icon {
-  width: 100px;
-  height: 100px;
-}
-
-.forecast-header {
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-size: 32px;
-  text-align: center;
-  font-weight: 500;
-}
-
-.forecast-day-temperature {
-  color: #E6EDF4;
-  font-family: "Avenir Next - Ultra Light", sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.forecast-summary {
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 20px 0;
-}
-
-.forecast-temperature {
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  width: 100%;
-  height: 50px;
-  color: #E6EDF4;
-  font-family: "Avenir Next", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-footer a {
-  font-family: "Avenir Next", sans-serif;
-  color: #E6EDF4;
-  text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
     background-color: #e7ebf4;
     width: 100%;
-    height: 100%;
+    height: 50px;
     position: sticky;
     top: 0;
-  }
+}
 
-  .options {
+.options {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#input-search-container {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
+    width: 50%;
+}
 
-  #input-search-container {
+#units-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.units-block-wrapper {
     width: 100%;
-  }
+}
 
-  #units-container {
+#favorite-cities-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.favorite-cities-wrapper {
     width: 100%;
-  }
+    display: flex;
+}
 
-  #favorite-cities-container {
+.address {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-  }
+}
 
-  .current-city-name {
-    color: #e7ebf4;
-    font-family: "Avenir Next", sans-serif;
-    font-size: 32px;
-    text-align: center;
-    font-weight: 500;
-  }
+.address label {
+    width: 100%;
+}
 
-  .btn-small {
-    border: none;
-    width: 10%;
-    height: 40px;
-    background-color: #424b5a;
-    color: #e7ebf4;
-    cursor: pointer;
-    transition: .3s;
-  }
-
-  .btn-small:hover {
-    transition: .3s;
-    background-color: #354b5a;
-    color: #ffffff;
-  }
-
-  .address-input {
+.address-input {
     border: 1px solid #424b5a;
     width: 100%;
     text-align: center;
-    height: 36px;
+    height: 46px;
     background-color: lightslategray;
     color: #ffffff;
-  }
+    font-size: 45px;
+    letter-spacing: 3px;
+}
 
-  .address-input::placeholder {
+.address-input::placeholder {
     color: #ffffff;
     text-align: center;
-    font-size: 25px;
-  }
+    font-size: 45px;
+    letter-spacing: 3px;
+    font-weight: 300;
+}
 
-  .unit-button {
-    border: none;
+.current {
     background-color: #424b5a;
     color: #e7ebf4;
-    width: 50%;
-    height: 35px;
+    height: 50px;
+}
+
+.btn-small {
+    border: none;
+    border-right: 1px solid lightslategray;
+    width: 25%;
+    height: 50px;
+    background-color: #424b5a;
+    color: #e7ebf4;
     cursor: pointer;
     transition: .3s;
-  }
+}
 
-  .unit-button:hover {
+.btn-small img {
+    width: 30px;
+    height: 30px;
+}
+
+.btn-small:hover {
     transition: .3s;
     background-color: #354b5a;
     color: #ffffff;
-  }
+}
 
-  #favorite-cities {
+.unit-button {
     border: none;
     border-left: 1px solid lightslategray;
     background-color: #424b5a;
     color: #e7ebf4;
-    width: 90%;
-    height: 40px;
+    width: 50%;
+    height: 50px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#favorite-cities {
+    border: none;
+    border-left: 1px solid lightslategray;
+    background-color: #424b5a;
+    color: #e7ebf4;
+    width: 75%;
+    height: 50px;
     cursor: pointer;
     padding: 0 10px;
     transition: .3s;
-  }
+}
+
+#submit {
+    background-image: url("img/search.svg");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#addToFav {
+    background-image: url("img/add.svg");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#currentPos {
+    background-image: url("img/target.svg");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.unit-button:hover {
+    transition: .3s;
+    background-color: #354b5a;
+    color: #ffffff;
+}
+
+#recently-viewed-cities-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+#recently-viewed-cities-block li {
+    margin: 10px 0;
+}
+
+.recently {
+    cursor: pointer;
+}
+
+.individual-day-forecast-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.individual-day-forecast-footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.forecast-item {
+    width: 70px;
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.forecast-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.forecast-header {
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.forecast-day-temperature {
+    color: #E6EDF4;
+    font-family: "Avenir Next - Ultra Light", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.forecast-summary {
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.forecast-temperature {
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    color: #E6EDF4;
+    font-family: "Avenir Next", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+footer a {
+    font-family: "Avenir Next", sans-serif;
+    color: #E6EDF4;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        background-color: #e7ebf4;
+        width: 100%;
+        height: 100%;
+        position: sticky;
+        top: 0;
+    }
+
+    .options {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #input-search-container {
+        width: 100%;
+    }
+
+    #units-container {
+        width: 100%;
+    }
+
+    #favorite-cities-container {
+        width: 100%;
+    }
+
+    .current-city-name {
+        color: #e7ebf4;
+        font-family: "Avenir Next", sans-serif;
+        font-size: 32px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .btn-small {
+        border: none;
+        width: 10%;
+        height: 40px;
+        background-color: #424b5a;
+        color: #e7ebf4;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .btn-small:hover {
+        transition: .3s;
+        background-color: #354b5a;
+        color: #ffffff;
+    }
+
+    .address-input {
+        border: 1px solid #424b5a;
+        width: 100%;
+        text-align: center;
+        height: 36px;
+        background-color: lightslategray;
+        color: #ffffff;
+    }
+
+    .address-input::placeholder {
+        color: #ffffff;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .unit-button {
+        border: none;
+        background-color: #424b5a;
+        color: #e7ebf4;
+        width: 50%;
+        height: 35px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .unit-button:hover {
+        transition: .3s;
+        background-color: #354b5a;
+        color: #ffffff;
+    }
+
+    #favorite-cities {
+        border: none;
+        border-left: 1px solid lightslategray;
+        background-color: #424b5a;
+        color: #e7ebf4;
+        width: 90%;
+        height: 40px;
+        cursor: pointer;
+        padding: 0 10px;
+        transition: .3s;
+    }
 }

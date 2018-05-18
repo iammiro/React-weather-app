@@ -41,20 +41,20 @@ class Favorites extends Component {
 
     render() {
         return (
-            <div className='favorite-cities-container'>
-                <input
-                    value={this.state.city}
-                    type='text'
-                    onChange={this.handleChange}/>
-                <select id="favorite-cities" onChange={this.findFavoriteCityForecast}>
-                    {this.state.favorites.map((option) =>
-                        <option key={option}>{option}</option>)}
-                </select>
+            <div className='favorite-cities-wrapper'>
                 <input
                     type='button'
                     onClick={this.addToFavorites}
                     id='addToFav'
                     className='btn-small'/>
+                <select id="favorite-cities" onChange={this.findFavoriteCityForecast}>
+                    {this.state.favorites.map((option) =>
+                        <option key={option}>{option}</option>)}
+                </select>
+                {/*<input*/}
+                    {/*value={this.state.city}*/}
+                    {/*type='text'*/}
+                    {/*onChange={this.handleChange}/>*/}
             </div>
         )
     }
