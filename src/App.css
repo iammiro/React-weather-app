@@ -355,6 +355,11 @@ footer a {
     font-size: 1rem;
 }
 
+canvas {
+    width: 130px !important;
+    margin: 10px 0;
+}
+
 @media (max-width: 900px) {
     #container {
         min-height: calc(100vh - 175px);
@@ -474,5 +479,6 @@ footer a {
 
     .forecast-item .numeric {
         color: #20c7ef;
+        font-size: 0.9rem;
     }
 }

@@ -51,7 +51,7 @@ class LocationSearch extends Component {
                         type="text"
                         name="search"
                         className="address-input"
-                        placeholder="TYPE CITY NAME"
+                        placeholder="Type city"
                         value={this.state.value}
                         onChange={this.handleChange}
                         required

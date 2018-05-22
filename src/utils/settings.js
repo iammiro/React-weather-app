@@ -11,7 +11,7 @@ const appSettings = {
 
 const developmentURLHandler = () => {
     const developmentURL = new URL(window.location.href);
-    (developmentURL === 'http://localhost:8080' || 'localhost:8080') ?
+    (developmentURL === 'http://localhost:8080' || 'localhost:8080' || 'http://localhost:3000' || 'localhost:3000') ?
         appSettings.appURL = (developmentURL.origin + '/') :
         appSettings.appURL = 'https://iammiro.github.io/React-weather-app/';
 };

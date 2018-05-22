@@ -65,6 +65,7 @@ function log(message, warn = false) {
     if (DEBUG) {
         if (warn) {
             console.warn(message);
+            alert('Please check city name and try again.');
         } else {
             console.log(message);
         }
